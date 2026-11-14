@@ -136,14 +136,8 @@ def health():
     return {"status": "ok"}
 
 
-BASE_DIR = Path(__file__).resolve().parent
 
-@app.get("/privacy-policy", include_in_schema=False)
-def privacy_policy():
-    return FileResponse(
-        path=BASE_DIR / "static" / "privacy-policy.html",
-        media_type="text/html"
-    )
+
 
 
 
@@ -230,3 +224,13 @@ def detect_plate_components(body: VisionRequest):
         return {"items": items, "source": "vision_ai_suggestion", "requires_confirmation": True}
     except (requests.RequestException, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
         raise HTTPException(status_code=502, detail="Vision provider error: " + str(error))
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+@app.get("/privacy-policy", include_in_schema=False)
+def privacy_policy():
+    return FileResponse(
+        path=BASE_DIR / "static" / "privacy-policy.html",
+        media_type="text/html"
+    )
