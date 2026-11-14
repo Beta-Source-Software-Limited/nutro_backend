@@ -1,68 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#075f3c" />
-  <meta name="description" content="Learn how Pushti AI handles food photos, nutrition information, weight goals and optional Health Connect activity data." />
+  <meta name="description"
+    content="Learn how Pushti AI handles food photos, nutrition information, weight goals and optional Health Connect activity data." />
   <title>Privacy Policy | Pushti AI</title>
   <style>
-    :root{--green:#07854d;--deep:#07452f;--mint:#e9f8ef;--text:#15271f;--muted:#60746a;--line:#e0eae4;--bg:#f6faf7;--shadow:0 15px 45px rgba(9,65,38,.07)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Bengali",sans-serif;color:var(--text)}
-    a{color:#056d44;text-underline-offset:3px}a:hover{color:#03462b} .wrap{max-width:1180px;margin:auto;padding:0 24px}
-    header{background:linear-gradient(135deg,#043d2c 0%,#067746 57%,#20b65a 100%);color:white;position:relative;overflow:hidden}
-    header:after{content:"";position:absolute;width:480px;height:480px;right:-120px;top:-210px;border-radius:100%;border:90px solid rgba(255,255,255,.07)}
-    .nav{padding:20px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
-    .brand{display:flex;gap:12px;align-items:center;font-size:20px;font-weight:800;letter-spacing:-.5px}.brand-icon{display:grid;place-items:center;width:40px;height:40px;background:linear-gradient(145deg,#70ee32,#03a563);border-radius:13px;font-size:23px;box-shadow:0 4px 16px #0348324d}
-    .nav a{color:#ecfff3;font-size:14px;text-decoration:none;border:1px solid #ffffff55;border-radius:30px;padding:7px 16px}
-    .hero{padding:55px 0 88px;max-width:850px;position:relative;z-index:1}.eyebrow{display:inline-block;color:#b6ffca;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px}
-    h1{font-size:clamp(38px,5vw,60px);line-height:1.13;letter-spacing:-2px;margin:12px 0 19px} .hero p{color:#d9f5e5;font-size:18px;max-width:760px;margin:0 0 20px}.date{color:#d2f8dc;font-size:13px}
-    .main{display:grid;grid-template-columns:260px minmax(0,1fr);gap:30px;align-items:start;margin-top:-42px;position:relative;z-index:2;padding-bottom:80px}
-    .toc,.paper,.topcard{background:white;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.toc{padding:22px;position:sticky;top:18px}.toc h2{font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:0 0 14px;color:#566b60}.toc a{display:block;text-decoration:none;color:#456052;padding:8px 9px;border-radius:9px;font-size:14px;line-height:1.45}.toc a:hover{background:#ecf8ef;color:#067442}
-    .content{min-width:0}.topcard{padding:27px 30px;margin-bottom:22px}.topcard h2{font-size:21px;margin:0 0 12px;letter-spacing:-.4px}.topcard p{margin:0;color:#51665a}.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.pill{background:var(--mint);border-radius:28px;padding:6px 13px;color:#136b44;font-weight:700;font-size:12px}
-    .paper{padding:14px 30px 34px}section{padding:28px 0 19px;border-bottom:1px solid var(--line);scroll-margin-top:20px}section:last-child{border-bottom:0}section h2{font-size:22px;letter-spacing:-.45px;margin:0 0 10px;line-height:1.35}section p{margin:10px 0;color:#43594e}section ul{margin:11px 0;padding-left:23px;color:#43594e}li{padding:4px 0}strong{color:#173d2d}.callout{border-left:4px solid #16ae62;background:#effaf2;border-radius:0 12px 12px 0;padding:15px 18px;margin:17px 0;color:#294c38}
-    .info-table{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:17px}.info-row{display:grid;grid-template-columns:minmax(120px,1fr) 2fr;border-bottom:1px solid var(--line)}.info-row:last-child{border-bottom:0}.info-row>div{padding:11px 13px;font-size:14px}.info-row>div:first-child{background:#f5faf6;font-weight:700}
-    .cta{padding:24px 28px;border-radius:17px;background:linear-gradient(120deg,#e8f9ed,#f6fbf7);border:1px solid #d8eddf;margin-top:22px}.cta h3{margin:0 0 5px;font-size:19px}.cta p{margin:0 0 8px}.placeholder{background:#fff1d6;color:#7a4800;border-radius:5px;padding:1px 5px}
-    footer{background:#073a29;color:#d2e7d9;padding:30px 0;font-size:14px}footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer strong{color:white}
-    @media(max-width:850px){.main{grid-template-columns:1fr;gap:18px}.toc{position:static}.toc nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 5px}.hero{padding:42px 0 76px}.paper{padding:9px 21px 23px}.topcard{padding:24px}.info-row{grid-template-columns:1fr}.info-row>div:last-child{padding-top:2px}.info-row>div:first-child{padding-bottom:2px}}
-    @media print{header{background:#07452f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toc{display:none}.main{display:block;margin-top:0}.paper,.topcard{box-shadow:none}body{background:white}}
+    :root {
+      --green: #07854d;
+      --deep: #07452f;
+      --mint: #e9f8ef;
+      --text: #15271f;
+      --muted: #60746a;
+      --line: #e0eae4;
+      --bg: #f6faf7;
+      --shadow: 0 15px 45px rgba(9, 65, 38, .07)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif;
+      color: var(--text)
+    }
+
+    a {
+      color: #056d44;
+      text-underline-offset: 3px
+    }
+
+    a:hover {
+      color: #03462b
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 24px
+    }
+
+    header {
+      background: linear-gradient(135deg, #043d2c 0%, #067746 57%, #20b65a 100%);
+      color: white;
+      position: relative;
+      overflow: hidden
+    }
+
+    header:after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -120px;
+      top: -210px;
+      border-radius: 100%;
+      border: 90px solid rgba(255, 255, 255, .07)
+    }
+
+    .nav {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.5px
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(145deg, #70ee32, #03a563);
+      border-radius: 13px;
+      font-size: 23px;
+      box-shadow: 0 4px 16px #0348324d
+    }
+
+    .nav a {
+      color: #ecfff3;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid #ffffff55;
+      border-radius: 30px;
+      padding: 7px 16px
+    }
+
+    .hero {
+      padding: 55px 0 88px;
+      max-width: 850px;
+      position: relative;
+      z-index: 1
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #b6ffca;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1.13;
+      letter-spacing: -2px;
+      margin: 12px 0 19px
+    }
+
+    .hero p {
+      color: #d9f5e5;
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 0 20px
+    }
+
+    .date {
+      color: #d2f8dc;
+      font-size: 13px
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+      margin-top: -42px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 80px
+    }
+
+    .toc,
+    .paper,
+    .topcard {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    .toc {
+      padding: 22px;
+      position: sticky;
+      top: 18px
+    }
+
+    .toc h2 {
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+      color: #566b60
+    }
+
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: #456052;
+      padding: 8px 9px;
+      border-radius: 9px;
+      font-size: 14px;
+      line-height: 1.45
+    }
+
+    .toc a:hover {
+      background: #ecf8ef;
+      color: #067442
+    }
+
+    .content {
+      min-width: 0
+    }
+
+    .topcard {
+      padding: 27px 30px;
+      margin-bottom: 22px
+    }
+
+    .topcard h2 {
+      font-size: 21px;
+      margin: 0 0 12px;
+      letter-spacing: -.4px
+    }
+
+    .topcard p {
+      margin: 0;
+      color: #51665a
+    }
+
+    .pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px
+    }
+
+    .pill {
+      background: var(--mint);
+      border-radius: 28px;
+      padding: 6px 13px;
+      color: #136b44;
+      font-weight: 700;
+      font-size: 12px
+    }
+
+    .paper {
+      padding: 14px 30px 34px
+    }
+
+    section {
+      padding: 28px 0 19px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 20px
+    }
+
+    section:last-child {
+      border-bottom: 0
+    }
+
+    section h2 {
+      font-size: 22px;
+      letter-spacing: -.45px;
+      margin: 0 0 10px;
+      line-height: 1.35
+    }
+
+    section p {
+      margin: 10px 0;
+      color: #43594e
+    }
+
+    section ul {
+      margin: 11px 0;
+      padding-left: 23px;
+      color: #43594e
+    }
+
+    li {
+      padding: 4px 0
+    }
+
+    strong {
+      color: #173d2d
+    }
+
+    .callout {
+      border-left: 4px solid #16ae62;
+      background: #effaf2;
+      border-radius: 0 12px 12px 0;
+      padding: 15px 18px;
+      margin: 17px 0;
+      color: #294c38
+    }
+
+    .info-table {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 17px
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) 2fr;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .info-row:last-child {
+      border-bottom: 0
+    }
+
+    .info-row>div {
+      padding: 11px 13px;
+      font-size: 14px
+    }
+
+    .info-row>div:first-child {
+      background: #f5faf6;
+      font-weight: 700
+    }
+
+    .cta {
+      padding: 24px 28px;
+      border-radius: 17px;
+      background: linear-gradient(120deg, #e8f9ed, #f6fbf7);
+      border: 1px solid #d8eddf;
+      margin-top: 22px
+    }
+
+    .cta h3 {
+      margin: 0 0 5px;
+      font-size: 19px
+    }
+
+    .cta p {
+      margin: 0 0 8px
+    }
+
+    .placeholder {
+      background: #fff1d6;
+      color: #7a4800;
+      border-radius: 5px;
+      padding: 1px 5px
+    }
+
+    footer {
+      background: #073a29;
+      color: #d2e7d9;
+      padding: 30px 0;
+      font-size: 14px
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    footer strong {
+      color: white
+    }
+
+    <blade media|(max-width%3A850px)%7B.main%7Bgrid-template-columns%3A1fr%3Bgap%3A18px%7D.toc%7Bposition%3Astatic%7D.toc%20nav%7Bdisplay%3Agrid%3Bgrid-template-columns%3Arepeat(2%2Cminmax(0%2C1fr))%3Bgap%3A0%205px%7D.hero%7Bpadding%3A42px%200%2076px%7D.paper%7Bpadding%3A9px%2021px%2023px%7D.topcard%7Bpadding%3A24px%7D.info-row%7Bgrid-template-columns%3A1fr%7D.info-row%3Ediv%3Alast-child%7Bpadding-top%3A2px%7D.info-row%3Ediv%3Afirst-child%7Bpadding-bottom%3A2px%7D%7D><blade media|%20print%7Bheader%7Bbackground%3A%2307452f !important%3B-webkit-print-color-adjust%3Aexact%3Bprint-color-adjust%3Aexact%7D.toc%7Bdisplay%3Anone%7D.main%7Bdisplay%3Ablock%3Bmargin-top%3A0%7D.paper%2C.topcard%7Bbox-shadow%3Anone%7Dbody%7Bbackground%3Awhite%7D%7D>
   </style>
 </head>
+
 <body>
-<header>
-  <div class="wrap">
-    <div class="nav"><div class="brand"><span class="brand-icon" aria-hidden="true">✦</span><span>Pushti AI</span></div><a href="#contact">Contact & support</a></div>
-    <div class="hero"><span class="eyebrow">Your data, your choice</span><h1>Privacy Policy</h1><p>How Pushti AI handles food photos, nutrition logs, weight goals, and optional fitness data—so you can track your progress with greater clarity.</p><div class="date">Effective date: November 14, 2026 · App: Pushti AI (Android)</div></div>
-  </div>
-</header>
-<main class="wrap main">
-  <aside class="toc" aria-label="Page contents"><h2>On this page</h2><nav>
-    <a href="#overview">1. Overview</a><a href="#data">2. Information we handle</a><a href="#health">3. Health Connect</a><a href="#photos">4. Food photos and AI</a><a href="#use">5. How data is used</a><a href="#sharing">6. Service providers</a><a href="#storage">7. Storage and security</a><a href="#retention">8. Retention and deletion</a><a href="#choices">9. Your choices</a><a href="#children">10. Children's privacy</a><a href="#changes">11. Changes</a><a href="#contact">12. Contact</a>
-  </nav></aside>
-  <div class="content">
-    <div class="topcard"><h2>Privacy at a glance</h2><p>Pushti AI is a food-recognition, nutrition-logging and activity-tracking application. Some information stays on your device; online features can transmit information to our backend and AI processing services. Watch and fitness data is accessed only after you grant the applicable permissions.</p><div class="pills"><span class="pill">Food & nutrition</span><span class="pill">Weight goals</span><span class="pill">Optional Health Connect</span><span class="pill">AI image analysis</span></div></div>
-    <article class="paper">
-      <section id="overview"><h2>1. Overview</h2><p>This policy explains how Pushti AI ("the App", "we", "our") accesses, uses, stores and shares information when you use the Android application and its supporting services. The App offers food identification, estimated calories and macronutrients, meal and water logs, personal weight goals, and optional activity syncing.</p><p>Pushti AI provides wellness information and estimates; it does not provide medical diagnosis or individualized medical treatment.</p></section>
-      <section id="data"><h2>2. Information we handle</h2><div class="info-table">
-        <div class="info-row"><div>Profile & goals</div><div>Age, height, weight, goal weight, preferred pace, target dates, activity level, and weigh-in history you enter.</div></div>
-        <div class="info-row"><div>Nutrition entries</div><div>Foods, quantities, estimated calories, macronutrients, water intake, dates, and meal history.</div></div>
-        <div class="info-row"><div>Food images</div><div>Photos you capture or select for food recognition. Local recognition may process images on your device; online analysis sends selected images to the backend.</div></div>
-        <div class="info-row"><div>Health & fitness</div><div>With permission: steps, active calories burned, and total calories burned from Health Connect. Other metrics are accessed only if subsequently enabled and authorized.</div></div>
-        <div class="info-row"><div>Technical data</div><div>Information needed to process API requests and maintain service reliability, such as request times, IP address and diagnostic errors, depending on server or hosting configuration.</div></div>
-      </div></section>
-      <section id="health"><h2>3. Health Connect and activity data</h2><p>With your authorization, Pushti AI requests Health Connect read permissions for steps, active calories burned and total calories burned. These help show daily activity, calorie-burn progress and goal comparisons. We do not need permission to read unrelated clinical health records for these features.</p><ul><li>You choose which requested permissions to grant and may revoke them in Android's Health Connect settings at any time.</li><li>The App accesses data made available to Health Connect by compatible health and wearable companion apps; it does not automatically connect to a smartwatch through Bluetooth.</li><li>We use this information for user-visible wellness features, not advertising or selling health information.</li><li>Revoking future access does not by itself erase information previously saved by the App. See <a href="#retention">Data deletion</a> below.</li></ul><div class="callout">Health Connect activity readings may be missing or incomplete when another app has not synchronized data, permission is denied or Health Connect is unavailable.</div></section>
-      <section id="photos"><h2>4. Camera, photos and AI analysis</h2><p>Food recognition can run locally using an on-device model. When you choose an online food or mixed-plate analysis feature, your selected image or food description may be sent over the internet to our backend and an AI processing provider to return a suggested label or nutrition estimate.</p><p>AI-generated results may be inaccurate and should be confirmed before saving. A photo may contain other visible information, so avoid submitting images with sensitive personal details. We may store food labels and estimated nutrient entries in a shared food reference database to avoid repeating the same calculations; personal photos should not be made publicly accessible.</p></section>
-      <section id="use"><h2>5. How we use information</h2><ul><li>Display calorie, protein, carbohydrate, fat, and hydration summaries.</li><li>Recognize food images and let you confirm food names and portions.</li><li>Calculate weight-goal estimates, activity targets and progress charts.</li><li>Show step counts and calorie-burn readings you permit us to access.</li><li>Maintain food-reference information, diagnose technical issues and protect service reliability.</li><li>Respond to privacy or support requests.</li></ul><p>We do not use Health Connect data for targeted advertising.</p></section>
-      <section id="sharing"><h2>6. Service providers and sharing</h2><p>Online functionality may involve infrastructure hosting providers, a managed MySQL database and a third-party AI processing service. These services receive only the information necessary to carry out the selected operation, subject to their own processing arrangements. The App does not need to sell personal health information to operate.</p><p>We may disclose information when legally required or necessary to protect the integrity and security of the service. Any additional third-party analytics, crash reporting or advertising services in a future release must be disclosed here and in the Google Play Data safety form before release.</p></section>
-      <section id="storage"><h2>7. Storage and security</h2><p>Nutrition logs, profile settings and weight-history entries may be stored locally in Android app storage. Online food-reference data and AI-generated nutrition estimates may be stored in a MySQL backend database. Where information is transmitted to online services, production requests should use HTTPS. No electronic storage or transmission method can be guaranteed perfectly secure.</p><p>If account synchronization is introduced, this policy should be updated to identify what user-specific information moves to the server and how those records are protected.</p></section>
-      <section id="retention"><h2>8. Retention and deletion</h2><p>Locally stored records generally remain until you remove them using available app controls or clear the App's storage/uninstall it. Removing the App does not automatically delete any information already sent to an online service. Shared, non-identifying food-reference records may remain in the nutrition database for ongoing lookups.</p><p>To request deletion of personal information held by the backend or to ask what data is associated with your requests, use the contact address below. We may need reasonable details to locate the relevant records. We will explain if some information must be retained for legal or security purposes.</p><div class="callout"><strong>Before publishing:</strong> Confirm the app's actual deletion capabilities, retention periods, server logs, and AI-provider storage terms. Add the exact retention/deletion timing here once verified.</div></section>
-      <section id="choices"><h2>9. Your choices</h2><ul><li>You may use manual food entry instead of online photo recognition.</li><li>You can decline optional Health Connect permissions and revoke them later in Android settings.</li><li>You may edit your profile, weight-goal settings and logged meals where the App provides those controls.</li><li>You may ask us to review or delete personal information through the contact method below.</li></ul></section>
-      <section id="children"><h2>10. Children's privacy</h2><p>Pushti AI's weight-loss planning features are intended for adults. They are not designed to provide weight-loss recommendations to children. If you believe a child has submitted personal information inappropriately, contact us to request a review and deletion where applicable.</p></section>
-      <section id="changes"><h2>11. Changes to this policy</h2><p>We may update this policy when the App's features, service providers, laws, or data practices change. The effective date at the top of this page will be updated. Significant changes may also be communicated within the App.</p></section>
-      <section id="contact"><h2>12. Contact</h2><p>For privacy questions, access requests, corrections or deletion requests, contact the Pushti AI developer:</p><div class="cta"><h3>Pushti AI — Privacy Support</h3><p>Developer / publisher: <span class="placeholder">[INSERT LEGAL DEVELOPER OR BUSINESS NAME]</span></p><p>Email: <span class="placeholder">[INSERT SUPPORT EMAIL ADDRESS]</span></p><p>Website: <span class="placeholder">[INSERT OFFICIAL WEBSITE OR SUPPORT URL]</span></p></div></section>
-    </article>
-  </div>
-</main>
-<footer><div class="wrap"><span><strong>Pushti AI</strong> · Nutrition intelligence and activity tracking</span><span>Privacy Policy · Updated November 14, 2026</span></div></footer>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand"><span class="brand-icon" aria-hidden="true">✦</span><span>Pushti AI</span></div><a
+          href="#contact">Contact & support</a>
+      </div>
+      <div class="hero"><span class="eyebrow">Your data, your choice</span>
+        <h1>Privacy Policy</h1>
+        <p>How Pushti AI handles food photos, nutrition logs, weight goals, and optional fitness data—so you can track
+          your progress with greater clarity.</p>
+        <div class="date">Effective date: November 14, 2026 · App: Pushti AI (Android)</div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap main">
+    <aside class="toc" aria-label="Page contents">
+      <h2>On this page</h2>
+      <nav>
+        <a href="#overview">1. Overview</a><a href="#data">2. Information we handle</a><a href="#health">3. Health
+          Connect</a><a href="#photos">4. Food photos and AI</a><a href="#use">5. How data is used</a><a
+          href="#sharing">6. Service providers</a><a href="#storage">7. Storage and security</a><a href="#retention">8.
+          Retention and deletion</a><a href="#choices">9. Your choices</a><a href="#children">10. Children's
+          privacy</a><a href="#changes">11. Changes</a><a href="#contact">12. Contact</a>
+      </nav>
+    </aside>
+    <div class="content">
+      <div class="topcard">
+        <h2>Privacy at a glance</h2>
+        <p>Pushti AI is a food-recognition, nutrition-logging and activity-tracking application. Some information stays
+          on your device; online features can transmit information to our backend and AI processing services. Watch and
+          fitness data is accessed only after you grant the applicable permissions.</p>
+        <div class="pills"><span class="pill">Food & nutrition</span><span class="pill">Weight goals</span><span
+            class="pill">Optional Health Connect</span><span class="pill">AI image analysis</span></div>
+      </div>
+      <article class="paper">
+        <section id="overview">
+          <h2>1. Overview</h2>
+          <p>This policy explains how Pushti AI ("the App", "we", "our") accesses, uses, stores and shares information
+            when you use the Android application and its supporting services. The App offers food identification,
+            estimated calories and macronutrients, meal and water logs, personal weight goals, and optional activity
+            syncing.</p>
+          <p>Pushti AI provides wellness information and estimates; it does not provide medical diagnosis or
+            individualized medical treatment.</p>
+        </section>
+        <section id="data">
+          <h2>2. Information we handle</h2>
+          <div class="info-table">
+            <div class="info-row">
+              <div>Profile & goals</div>
+              <div>Age, height, weight, goal weight, preferred pace, target dates, activity level, and weigh-in history
+                you enter.</div>
+            </div>
+            <div class="info-row">
+              <div>Nutrition entries</div>
+              <div>Foods, quantities, estimated calories, macronutrients, water intake, dates, and meal history.</div>
+            </div>
+            <div class="info-row">
+              <div>Food images</div>
+              <div>Photos you capture or select for food recognition. Local recognition may process images on your
+                device; online analysis sends selected images to the backend.</div>
+            </div>
+            <div class="info-row">
+              <div>Health & fitness</div>
+              <div>With permission: steps, active calories burned, and total calories burned from Health Connect. Other
+                metrics are accessed only if subsequently enabled and authorized.</div>
+            </div>
+            <div class="info-row">
+              <div>Technical data</div>
+              <div>Information needed to process API requests and maintain service reliability, such as request times,
+                IP address and diagnostic errors, depending on server or hosting configuration.</div>
+            </div>
+          </div>
+        </section>
+        <section id="health">
+          <h2>3. Health Connect and activity data</h2>
+          <p>With your authorization, Pushti AI requests Health Connect read permissions for steps, active calories
+            burned and total calories burned. These help show daily activity, calorie-burn progress and goal
+            comparisons. We do not need permission to read unrelated clinical health records for these features.</p>
+          <ul>
+            <li>You choose which requested permissions to grant and may revoke them in Android's Health Connect settings
+              at any time.</li>
+            <li>The App accesses data made available to Health Connect by compatible health and wearable companion apps;
+              it does not automatically connect to a smartwatch through Bluetooth.</li>
+            <li>We use this information for user-visible wellness features, not advertising or selling health
+              information.</li>
+            <li>Revoking future access does not by itself erase information previously saved by the App. See <a
+                href="#retention">Data deletion</a> below.</li>
+          </ul>
+          <div class="callout">Health Connect activity readings may be missing or incomplete when another app has not
+            synchronized data, permission is denied or Health Connect is unavailable.</div>
+        </section>
+        <section id="photos">
+          <h2>4. Camera, photos and AI analysis</h2>
+          <p>Food recognition can run locally using an on-device model. When you choose an online food or mixed-plate
+            analysis feature, your selected image or food description may be sent over the internet to our backend and
+            an AI processing provider to return a suggested label or nutrition estimate.</p>
+          <p>AI-generated results may be inaccurate and should be confirmed before saving. A photo may contain other
+            visible information, so avoid submitting images with sensitive personal details. We may store food labels
+            and estimated nutrient entries in a shared food reference database to avoid repeating the same calculations;
+            personal photos should not be made publicly accessible.</p>
+        </section>
+        <section id="use">
+          <h2>5. How we use information</h2>
+          <ul>
+            <li>Display calorie, protein, carbohydrate, fat, and hydration summaries.</li>
+            <li>Recognize food images and let you confirm food names and portions.</li>
+            <li>Calculate weight-goal estimates, activity targets and progress charts.</li>
+            <li>Show step counts and calorie-burn readings you permit us to access.</li>
+            <li>Maintain food-reference information, diagnose technical issues and protect service reliability.</li>
+            <li>Respond to privacy or support requests.</li>
+          </ul>
+          <p>We do not use Health Connect data for targeted advertising.</p>
+        </section>
+        <section id="sharing">
+          <h2>6. Service providers and sharing</h2>
+          <p>Online functionality may involve infrastructure hosting providers, a managed MySQL database and a
+            third-party AI processing service. These services receive only the information necessary to carry out the
+            selected operation, subject to their own processing arrangements. The App does not need to sell personal
+            health information to operate.</p>
+          <p>We may disclose information when legally required or necessary to protect the integrity and security of the
+            service. Any additional third-party analytics, crash reporting or advertising services in a future release
+            must be disclosed here and in the Google Play Data safety form before release.</p>
+        </section>
+        <section id="storage">
+          <h2>7. Storage and security</h2>
+          <p>Nutrition logs, profile settings and weight-history entries may be stored locally in Android app storage.
+            Online food-reference data and AI-generated nutrition estimates may be stored in a MySQL backend database.
+            Where information is transmitted to online services, production requests should use HTTPS. No electronic
+            storage or transmission method can be guaranteed perfectly secure.</p>
+          <p>If account synchronization is introduced, this policy should be updated to identify what user-specific
+            information moves to the server and how those records are protected.</p>
+        </section>
+        <section id="retention">
+          <h2>8. Retention and deletion</h2>
+          <p>Locally stored records generally remain until you remove them using available app controls or clear the
+            App's storage/uninstall it. Removing the App does not automatically delete any information already sent to
+            an online service. Shared, non-identifying food-reference records may remain in the nutrition database for
+            ongoing lookups.</p>
+          <p>To request deletion of personal information held by the backend or to ask what data is associated with your
+            requests, use the contact address below. We may need reasonable details to locate the relevant records. We
+            will explain if some information must be retained for legal or security purposes.</p>
+          <div class="callout"><strong>Before publishing:</strong> Confirm the app's actual deletion capabilities,
+            retention periods, server logs, and AI-provider storage terms. Add the exact retention/deletion timing here
+            once verified.</div>
+        </section>
+        <section id="choices">
+          <h2>9. Your choices</h2>
+          <ul>
+            <li>You may use manual food entry instead of online photo recognition.</li>
+            <li>You can decline optional Health Connect permissions and revoke them later in Android settings.</li>
+            <li>You may edit your profile, weight-goal settings and logged meals where the App provides those controls.
+            </li>
+            <li>You may ask us to review or delete personal information through the contact method below.</li>
+          </ul>
+        </section>
+        <section id="children">
+          <h2>10. Children's privacy</h2>
+          <p>Pushti AI's weight-loss planning features are intended for adults. They are not designed to provide
+            weight-loss recommendations to children. If you believe a child has submitted personal information
+            inappropriately, contact us to request a review and deletion where applicable.</p>
+        </section>
+        <section id="changes">
+          <h2>11. Changes to this policy</h2>
+          <p>We may update this policy when the App's features, service providers, laws, or data practices change. The
+            effective date at the top of this page will be updated. Significant changes may also be communicated within
+            the App.</p>
+        </section>
+        <section id="contact">
+          <h2>12. Contact</h2>
+          <p>For privacy questions, access requests, corrections or deletion requests, contact the Pushti AI developer:
+          </p>
+          <div class="cta">
+            <h3>Pushti AI — Privacy Support</h3>
+            <p>Developer / publisher: <span class="placeholder">Sagar Shourov Roy</span></p>
+            <p>Email: <span class="placeholder">contact@sagarrroy.com</span></p>
+            <p>Website: <span class="placeholder">https://www.sagarroy.com</span></p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap"><span><strong>Pushti AI</strong> · Nutrition intelligence and activity
+        tracking</span><span>Privacy Policy · Updated November 14, 2026</span></div>
+  </footer>
 </body>
+
 </html>
