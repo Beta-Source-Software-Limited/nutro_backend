@@ -12,6 +12,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal
 
+
+from fastapi.responses import FileResponse
+
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -131,6 +134,20 @@ def startup():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+@app.get("/privacy-policy", include_in_schema=False)
+def privacy_policy():
+    return FileResponse(
+        path=BASE_DIR / "static" / "privacy-policy.html",
+        media_type="text/html"
+    )
+
+
+
+
 
 @app.post("/v1/nutrition/resolve", response_model=ResolveResponse)
 def resolve(body: ResolveRequest):
