@@ -12,17 +12,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal
 
-
-from fastapi.responses import FileResponse
-
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import create_engine, ForeignKey, String, Float, DateTime, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 load_dotenv()
+ROOT_DIR = Path(__file__).resolve().parent
+SITE_DIR = ROOT_DIR / "site"
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 if not DATABASE_URL:
     raise RuntimeError("Set DATABASE_URL before starting the server")
@@ -52,8 +53,21 @@ class AliasRow(Base):
     normalized: Mapped[str] = mapped_column(String(255), unique=True, index=True)
     food_id: Mapped[int] = mapped_column(ForeignKey("nutrition_foods.id"))
 
-app = FastAPI(title="NutriLens Nutrition API", version="0.1.0")
-ALIASES = json.loads((Path(__file__).with_name("label_aliases.json")).read_text(encoding="utf-8"))
+app = FastAPI(title="Pushti AI Nutrition API", version="1.0.0")
+
+# Serve the website on the same domain as the API.
+app.mount("/assets", StaticFiles(directory=SITE_DIR / "assets"), name="assets")
+
+@app.get("/", include_in_schema=False)
+def homepage():
+    return FileResponse(SITE_DIR / "index.html", media_type="text/html")
+
+@app.get("/privacy-policy", include_in_schema=False)
+@app.get("/privacy-policy.html", include_in_schema=False)
+def privacy_policy():
+    return FileResponse(SITE_DIR / "privacy-policy.html", media_type="text/html")
+
+ALIASES = json.loads((ROOT_DIR / "label_aliases.json").read_text(encoding="utf-8"))
 
 class ResolveRequest(BaseModel):
     label: str = Field(min_length=1, max_length=160)
@@ -127,23 +141,16 @@ def estimate_per_100g(label: str, preparation: str | None) -> dict | None:
     estimate["assumptions"] = str(estimate.get("assumptions") or "AI recipe estimate")[:1000]
     return estimate
 
-@app.on_event("startup")
-def startup():
-    Base.metadata.create_all(engine)
+# MySQL tables are initialized separately using `python init_db.py`.
+# Avoid blocking public pages on a database connection at server startup.
 
 @app.get("/health")
+@app.get("/api/health", include_in_schema=False)
 def health():
     return {"status": "ok"}
 
-
-
-
-
-
-
-
-
 @app.post("/v1/nutrition/resolve", response_model=ResolveResponse)
+@app.post("/api/v1/nutrition/resolve", response_model=ResolveResponse, include_in_schema=False)
 def resolve(body: ResolveRequest):
     normalized = normalize(body.label)
     canonical = ALIASES.get(normalized, normalized)
@@ -159,7 +166,7 @@ def resolve(body: ResolveRequest):
     try:
         estimated = estimate_per_100g(body.label, body.preparation)
     except (requests.RequestException, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
-        raise HTTPException(status_code=502, detail="AI nutrition service failed: " + str(error))
+        raise HTTPException(status_code=502, detail="AI nutrition service is temporarily unavailable")
     if estimated is None:
         raise HTTPException(status_code=404,
             detail="Not cached. Configure OPENAI_API_KEY for AI estimates or add a reviewed food record.")
@@ -182,6 +189,7 @@ class VisionRequest(BaseModel):
     image_base64: str = Field(min_length=100, max_length=7_500_000)
 
 @app.post("/v1/vision/components")
+@app.post("/api/v1/vision/components", include_in_schema=False)
 def detect_plate_components(body: VisionRequest):
     """Optional mixed-plate vision assistant. Returns tentative labels, not probabilities or grams."""
     key = os.getenv("OPENAI_API_KEY", "")
@@ -223,14 +231,4 @@ def detect_plate_components(body: VisionRequest):
                 items.append({"label": label, "reason": str(item.get("reason", ""))[:200]})
         return {"items": items, "source": "vision_ai_suggestion", "requires_confirmation": True}
     except (requests.RequestException, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
-        raise HTTPException(status_code=502, detail="Vision provider error: " + str(error))
-
-
-BASE_DIR = Path(__file__).resolve().parent
-
-@app.get("/privacy-policy", include_in_schema=False)
-def privacy_policy():
-    return FileResponse(
-        path=BASE_DIR / "static" / "privacy-policy.html",
-        media_type="text/html"
-    )
+        raise HTTPException(status_code=502, detail="Online vision analysis is temporarily unavailable")
