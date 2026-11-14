@@ -15,5 +15,17 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: mysql+pymysql://nutrilens:dev_only_change_me@mysql:3306/nutrilens
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
 volumes:
   mysql_data:
